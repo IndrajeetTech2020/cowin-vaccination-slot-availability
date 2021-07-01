@@ -85,6 +85,9 @@ final_df = None
 for INP_DATE in date_str:
     URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id={}&date={}".format(DIST_ID, INP_DATE)
     response = requests.get(URL, headers=browser_header)
+    print(response)
+    print("URL : "+URL)
+    print(browser_header)
     if (response.ok) and ('centers' in json.loads(response.text)):
         resp_json = json.loads(response.text)['centers']
         if resp_json is not None:
